@@ -14,7 +14,6 @@ import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.TimerTask;
 
 import zs.com.gesturelock.R;
 
@@ -309,10 +308,11 @@ public class GestureLockViewGroup extends RelativeLayout {
 	 * 延迟清除内容
 	 */
 	public  void onDelayReset() {
-		this.postDelayed(new TimerTask() {
+		this.postDelayed(new Runnable() {
 			@Override
 			public void run() {
 				reset();
+				invalidate();
 			}
 		},1000);
 	}
