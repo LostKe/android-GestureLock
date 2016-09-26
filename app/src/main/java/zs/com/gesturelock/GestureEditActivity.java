@@ -79,7 +79,9 @@ public class GestureEditActivity extends AppCompatActivity implements View.OnCli
                     //比较和第一的手势
                     if(compare(list,answer)){
                         //两次一致
+                        editStatu=GestureEditEnum.EDIT_MATCH;
                         Toast.makeText(GestureEditActivity.this,"设置成功",Toast.LENGTH_SHORT).show();
+
                         //TODO
                     }else {
                         //提示不一致
@@ -121,6 +123,7 @@ public class GestureEditActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void makeTip(GestureEditEnum value){
+        Animation animation = AnimationUtils.loadAnimation(GestureEditActivity.this,R.anim.shake);
         switch (value){
             case EDIT_INIT:
                 gesture_edit_tip.setText("绘制解锁图案");
@@ -132,7 +135,11 @@ public class GestureEditActivity extends AppCompatActivity implements View.OnCli
             case EDIT_NOT_MATCH:
                 gesture_edit_tip.setText("两次绘制图案不一致，请重新绘制");
                 gesture_edit_tip.setTextColor(Color.RED);
-                Animation animation = AnimationUtils.loadAnimation(GestureEditActivity.this,R.anim.shake);
+                gesture_edit_tip.startAnimation(animation);
+                break;
+            case EDIT_MATCH:
+                gesture_edit_tip.setText("设置成功");
+                gesture_edit_tip.setTextColor(0xff108ee9);
                 gesture_edit_tip.startAnimation(animation);
                 break;
         }

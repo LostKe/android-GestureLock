@@ -226,7 +226,7 @@ public class GestureLockViewGroup extends RelativeLayout {
 		switch (action) {
 			case MotionEvent.ACTION_DOWN:
 				// 重置
-				reset();
+				//reset();
 				break;
 			case MotionEvent.ACTION_MOVE:
 				GestureLockView child = getChildIdByPos(x, y);

@@ -6,5 +6,7 @@ package zs.com.gesturelock.widget;
 public enum  GestureEditEnum {
         EDIT_INIT,//初始状态
         EDIT_FIRST,//第一次绘制
-        EDIT_NOT_MATCH;//两次绘制不一致
+        EDIT_NOT_MATCH,
+        EDIT_MATCH;//两次绘制不一致
+
 }

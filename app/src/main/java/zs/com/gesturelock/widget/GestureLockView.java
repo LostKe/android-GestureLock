@@ -67,9 +67,10 @@ public class GestureLockView extends View {
 		this.mColorCustom = mColorCustom;
 		this.mColorMove = mColorMove;
 		this.mColorError = mColorError;
-		this.mLineCustomSize=mLineCustomSize;
-		this.mLineMoveSize=mLineMoveSize;
-		mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+		this.mLineCustomSize=ConvertUtil.dip2px(context,mLineCustomSize);
+		this.mLineMoveSize=ConvertUtil.dip2px(context,mLineMoveSize);
+		mPaint = new Paint();
+		mPaint.setAntiAlias(true);
 		mArrowPath = new Path();
 
 	}
@@ -83,15 +84,15 @@ public class GestureLockView extends View {
 
 		// 取长和宽中的小值
 		mWidth = mWidth < mHeight ? mWidth : mHeight;
-		mRadius = mCenterX = mCenterY = mWidth / 2;
+		mCenterX = mCenterY = mWidth / 2;
 		switch (mCurrentStatus){
 			case STATUS_FINGER_ON:
 			case STATUS_FINGER_UP_SUCCESS:
 			case STATUS_FINGER_UP_ERROR:
-				mRadius = (int)(mRadius-mLineMoveSize / 2);
+				mRadius = (int)(mCenterX-mLineMoveSize/2);
 				break;
 			case STATUS_NO_FINGER:
-				mRadius =(int)(mRadius- mLineCustomSize / 2);
+				mRadius =(int)(mCenterX- mLineCustomSize/2);
 				break;
 		}
 

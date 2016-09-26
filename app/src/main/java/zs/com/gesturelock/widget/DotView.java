@@ -54,7 +54,7 @@ public class DotView extends View {
         mHeight=MeasureSpec.getSize(heightMeasureSpec);
         mWidth = mWidth < mHeight ? mWidth : mHeight;
         mCenterX = mCenterY = (mWidth / 2);
-        mRadius =mCenterX-STROKEWIDTH;//减去边线的宽度
+        mRadius =mCenterX-STROKEWIDTH/2;//减去边线的宽度
     }
 
     @Override

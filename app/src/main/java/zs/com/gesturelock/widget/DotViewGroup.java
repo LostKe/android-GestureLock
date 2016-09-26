@@ -39,7 +39,7 @@ public class DotViewGroup extends RelativeLayout {
         setWillNotDraw(false);//强制调用 onDraw方法
         TypedArray arry= context.obtainStyledAttributes(attrs,R.styleable.DotViewGroup);
         mCount=arry.getInteger(R.styleable.DotViewGroup_count,mCount);
-        mDotSize=arry.getInteger(R.styleable.DotViewGroup_dotSize,mDotSize);
+        mDotSize=ConvertUtil.dip2px(context,arry.getInteger(R.styleable.DotViewGroup_dotSize,mDotSize));
         mNormalDotColor=arry.getColor(R.styleable.DotViewGroup_normal_color,mNormalDotColor);
         mActionDotColor=arry.getColor(R.styleable.DotViewGroup_action_color,mActionDotColor);
         arry.recycle();
