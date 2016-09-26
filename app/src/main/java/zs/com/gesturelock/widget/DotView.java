@@ -30,6 +30,7 @@ public class DotView extends View {
     private  int mWidth;
     private  int mHeight;
     private Paint mPaint;
+    private static final int STROKEWIDTH=2;
 
 
     public DotView(Context context) {
@@ -42,7 +43,7 @@ public class DotView extends View {
         this.mNormalDotColor=mNormalDotColor;
         this.mActionDotColor=mActionDotColor;
         mPaint=new Paint();
-        mPaint.setAntiAlias(true);
+
     }
 
 
@@ -51,21 +52,20 @@ public class DotView extends View {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         mWidth=MeasureSpec.getSize(widthMeasureSpec);
         mHeight=MeasureSpec.getSize(heightMeasureSpec);
-
         mWidth = mWidth < mHeight ? mWidth : mHeight;
-        mRadius = mCenterX = mCenterY = mWidth / 2;
-
+        mCenterX = mCenterY = (mWidth / 2);
+        mRadius =mCenterX-STROKEWIDTH;//减去边线的宽度
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-
-
+        mPaint.reset();
+        mPaint.setAntiAlias(true);
         switch (mCurrentStatus){
             case NORMAL://画空心圆
                 mPaint.setStyle(Paint.Style.STROKE);
-                mPaint.setStrokeWidth(1.5f);
+                mPaint.setStrokeWidth(STROKEWIDTH);
                 mPaint.setColor(mNormalDotColor);
                 break;
             case ACTION://画实心圆

@@ -43,7 +43,7 @@ public class DotViewGroup extends RelativeLayout {
         mNormalDotColor=arry.getColor(R.styleable.DotViewGroup_normal_color,mNormalDotColor);
         mActionDotColor=arry.getColor(R.styleable.DotViewGroup_action_color,mActionDotColor);
         arry.recycle();
-        mDotDistance=mDotSize/2;//圆点之间的间隔
+        mDotDistance=mDotSize/5;//圆点之间的间隔
         dotViews=new DotView[mCount*mCount ];
         addView();//添加子View
     }

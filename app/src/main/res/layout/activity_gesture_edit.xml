@@ -15,7 +15,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         dot:count="3"
-        dot:dotSize="10"
+        dot:dotSize="15"
         dot:normal_color="#979999"
         dot:action_color="#ff108ee9" />
     <TextView
