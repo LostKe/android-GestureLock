@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -40,6 +41,7 @@ public class GestureVerifyActivity extends AppCompatActivity {
                     gesture_verify_tip.startAnimation(anim);
                 }else {
                     gesture_verify_tip.setVisibility(View.INVISIBLE);
+                    Toast.makeText(GestureVerifyActivity.this,"校验成功",Toast.LENGTH_SHORT).show();
                 }
             }
 
